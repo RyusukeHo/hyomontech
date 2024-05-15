@@ -7,13 +7,11 @@
     <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png">
     <link rel="icon" href="favicon.ico">
 
-    <title>Message Board</title>
+    <title>Hyomon Movie</title>
 </head>
 
 <body>
-    <div class="container"><iframe
-            src="https://script.google.com/macros/s/AKfycbxzDCEJD19MUGPWU2B8iBrmB1aI1Nd5CloAKez6Mx-OizzRQdQAkrPjjGXif-2-7FnaUA/exec"
-            frameborder="0"></iframe></div>
+    <div class="container"><iframe src="about:blank" frameborder="0" id="viewer"></iframe></div>
 
 
     <style>
@@ -30,6 +28,9 @@
             height: 100%;
         }
     </style>
+    <script>
+        document.getElementById("viewer").setAttribute("src", "https://script.google.com/macros/s/AKfycbwMHLmt83tnmsNEOBnPsdVcusSUmNV7rUTGGp26NRuaGmiZ4arLZ0VnOvpgi8juDTIlPg/exec" + location.search);
+    </script>
 </body>
 
 </html>
