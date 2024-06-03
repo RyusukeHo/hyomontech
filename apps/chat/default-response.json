@@ -1,0 +1,36 @@
+{
+    "response-list": [
+        {
+            "keywords": [
+                "こんにちは",
+                "やあ",
+                "自己紹介",
+                "Hello"
+            ],
+            "response": "こんにちは！私はヒョウモントカゲモドキ、Hyomon Techから派遣されたあなたのアシスタントです！<br>何か知りたいことがありましたら気軽に話しかけてください😊"
+        },
+        {
+            "keywords": [
+                "天気",
+                "晴れ",
+                "雨"
+            ],
+            "response": "${weather}"
+        },
+        {
+            "keywords": [
+                "-とは",
+                "って何",
+                "ってなに"
+            ],
+            "response": "${wiki}"
+        },
+        {
+            "keywords": [
+                "www",
+                "(笑)"
+            ],
+            "response": "WWW"
+        }
+    ]
+}
