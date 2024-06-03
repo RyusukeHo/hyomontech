@@ -149,7 +149,7 @@
                 var res = await fetch("https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + input);
                 const data = await res.blob();
                 const qrURL = await URL.createObjectURL(data);
-                return input + `のQRコードはこちらです✌️<br><img src="` + qrURL + "\" style=\"max-width:200px;max-height:200px;\"";
+                return input + `のQRコードはこちらです😊<br><img src="` + qrURL + "\" style=\"max-width:200px;max-height:200px;\">";
             }
         }
         function generateUUID() {
