@@ -35,6 +35,33 @@
             <p style="color:dimgray; text-align: center;" class="col-12">
                 免責事項：ヒョウモントカゲモドキさんはChatGPTによってトレーニングされたものではありません。<br>不適切な発言をしたり誤った情報を提供してしまったりする可能性があります。</p>
         </div>
+        <div class="row" id="suggestionArea" style="padding-top: 20px;padding-bottom: 80px;">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8">
+                <div class="row w-100">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-info m-4 w-100"
+                            onclick="messageField.value = 'ランダム';onSendMessage();" id="send-message"><i
+                                class="bi bi-dice-5"></i>&nbsp;ランダムに記事を取得</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-info m-4 w-100"
+                            onclick="messageField.value = 'qr';onSendMessage();" id="send-message"><i
+                                class="bi bi-qr-code"></i>&nbsp;QRコードを作成</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-info m-4 w-100"
+                            onclick="messageField.value = 'tony';onSendMessage();" id="send-message"><i
+                                class="bi bi-lightbulb"></i>&nbsp;Tonyとは？</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
     </div>
     </div>
     <script>
@@ -58,6 +85,9 @@
         let onSendMessage = async () => {
             if (messageField.value != "") {
                 accumulation = "";
+                if (isFirstQ) {
+                    document.getElementById("suggestionArea").style.display = "none";
+                }
                 finalRuntimeAnswer = generateUUID();
                 document.getElementById("messageArea").insertAdjacentHTML("beforeend", `<div class="col-1 m-2">
                 <img src="https://lh3.googleusercontent.com/d/1SqDtnt-41KpOf830aRDYZ3_ufAr0YKus" width="50"
@@ -90,6 +120,7 @@
                 finalAnswerElement = document.getElementById(finalRuntimeAnswer);
                 if (isFirstQ) {
                     isFirstQ = false;
+
                     var res = await fetch("https://ryusukeho.github.io/hyomontech/apps/chat/default-response.json");
                     const data = await res.json();
                     responseList = JSON.parse(JSON.stringify(data)).response_list;
@@ -159,7 +190,7 @@
             } else if (mode == "wikir") {
                 var artres = await fetch("https://ja.wikipedia.org/w/api.php?format=json&action=query&list=random&rnnamespace=0&rnlimit=1&origin=*");
                 const artdata = await artres.json();
-                let targetName = JSON.parse(JSON.stringify(data)).query.random[0].title;
+                let targetName = JSON.parse(JSON.stringify(artdata)).query.random[0].title;
                 var res = await fetch("https://ja.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + targetName + "&format=json&origin=*");
                 const data = await res.json();
                 var res2 = await fetch("https://ja.wikipedia.org/api/rest_v1/page/summary/" + targetName);
