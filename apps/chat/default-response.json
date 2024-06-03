@@ -5,7 +5,10 @@
                 "こんにちは",
                 "やあ",
                 "自己紹介",
-                "Hello"
+                "Hello",
+                "hello",
+                "どうも",
+                "誰"
             ],
             "response": "こんにちは！私はヒョウモントカゲモドキ、Hyomon Techから派遣されたあなたのアシスタントです！<br>何か知りたいことがありましたら気軽に話しかけてください😊"
         },
@@ -31,6 +34,51 @@
                 "qr"
             ],
             "response": "${qr}"
+        },
+        {
+            "keywords": [
+                "何ができ",
+                "なにができ"
+            ],
+            "response": "私は天気を調べたり、言葉を調べたり、QRコードを生成したりすることができます。<br>まだまだ私にできることは限られていますが、たくさん話しかけていただけると嬉しいです🥰"
+        },
+        {
+            "keywords": [
+                "性別",
+                "男",
+                "女"
+            ],
+            "response": "私には性別という概念はありません。ご理解ください🙇"
+        },
+        {
+            "keywords": [
+                "感情"
+            ],
+            "response": "私には感情がありません...。ご理解ください🙇"
+        },
+        {
+            "keywords": [
+                "好きな食べ物"
+            ],
+            "response": "私は搾菜（ザーサイ）とお寿司が大好きです！<br>ただ、食べることはできないのでインターネット上の画像をみて楽しんでいます😋"
+        },
+        {
+            "keywords": [
+                "トニー",
+                "tony",
+                "tonies",
+                "とにー"
+            ],
+            "response": "Tony（トニー）はHyomon Technologiesが発行・管理している通貨です！<br>Hyomonアカウントを作成するとデフォルトで5000Toniesが用意されています。<br>Tonyは様々なイベントや専用のゲーム（Random Numberなど）を通じて入手でき、新たなアプリの購入や、サービスの利用などにご利用いただけます。<br>現在お客様が所有しているTonyは<a href=\"https://ryusukeho.github.io/hyomontech/apps/tonymanager/\">Tony Manager</a>でご確認いただけます。<br>どうぞ、Hyomonアプリをお楽しみください😁"
+        },
+        {
+            "keywords": [
+                "ごみ",
+                "ゴミ",
+                "くそ",
+                "クソ"
+            ],
+            "response": "ご期待に沿えず申し訳ございません。<br>私はあくまでプログラムされたアシスタントなので何かご不明な点がございましたら<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSe4Vqt5mWs4mHJSfHpSWUAjLMQq9gAN9hP1MEXSBu3fp-RI0A/viewform\">お問い合わせフォーム</a>の方までお問い合わせください。"
         }
     ]
 }
