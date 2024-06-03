@@ -135,9 +135,15 @@
                 for (let id in data.query.pages) {
                     try {
                         var request = JSON.parse(JSON.stringify(data)).query.pages[id].extract;
-                        var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
+                        let returns = targetName + `についてWikipediaで調べてみました🔎<br>` + request + "<br>";
+                        try {
+                            var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
+                            returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
+                        } catch (e) {
+                        }
 
-                        return targetName + `についてWikipediaで調べてみました🔎<br>` + request + "<br><img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
+
+                        return returns;
                     } catch (e) {
                         return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
                     }
@@ -150,6 +156,30 @@
                 const data = await res.blob();
                 const qrURL = await URL.createObjectURL(data);
                 return input + `のQRコードはこちらです😊<br><img src="` + qrURL + "\" style=\"max-width:200px;max-height:200px;\">";
+            } else if (mode == "wikir") {
+                var artres = await fetch("https://ja.wikipedia.org/w/api.php?format=json&action=query&list=random&rnnamespace=0&rnlimit=1");
+                const artdata = await artres.json();
+                let targetName = JSON.parse(JSON.stringify(data)).query.random[0].title;
+                var res = await fetch("https://ja.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + targetName + "&format=json&origin=*");
+                const data = await res.json();
+                var res2 = await fetch("https://ja.wikipedia.org/api/rest_v1/page/summary/" + targetName);
+                const data2 = await res2.json();
+                for (let id in data.query.pages) {
+                    try {
+                        var request = JSON.parse(JSON.stringify(data)).query.pages[id].extract;
+                        let returns = "Wikipediaからランダムに記事を取得しました🔎<br>" + targetName + `について<br>` + request + "<br>";
+                        try {
+                            var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
+                            returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
+                        } catch (e) {
+                        }
+
+
+                        return returns;
+                    } catch (e) {
+                        return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
+                    }
+                }
             }
         }
         function generateUUID() {
@@ -213,6 +243,8 @@
                 result2 = await getAPIResponse("wiki", input);
             } else if (result2 == "${qr}") {
                 result2 = await getAPIResponse("qr", input);
+            } else if (result2 == "${wikir}") {
+                result2 = await getAPIResponse("wikir", input);
             }
             return result2;
         };

@@ -79,6 +79,14 @@
                 "クソ"
             ],
             "response": "ご期待に沿えず申し訳ございません。<br>私はあくまでプログラムされたアシスタントなので何かご不明な点がございましたら<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSe4Vqt5mWs4mHJSfHpSWUAjLMQq9gAN9hP1MEXSBu3fp-RI0A/viewform\">お問い合わせフォーム</a>の方までお問い合わせください。"
+        },
+        {
+            "keywords": [
+                "ランダム",
+                "適当",
+                "てきとう"
+            ],
+            "response": "${wikir}"
         }
     ]
 }
