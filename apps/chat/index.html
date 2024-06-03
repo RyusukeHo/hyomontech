@@ -171,12 +171,13 @@
                 if (count == result.length) {
                     isEnd = true;
                 }
-                onChangeAnswer(result.substr(count == 0 ? 0 : count - 3, count == 0 ? 0 : Math.min(3, 3 - (count - result.length))), isEnd);
+                let index = count == 0 ? 0 : count - (count % 3 == 0 ? 3 : count % 3);
+                onChangeAnswer(result.substr(index, count == 0 ? 0 : Math.min(3, count - index)), isEnd);
                 await delay(50);
             }
         };
         let answerMaker = async (command2) => {
-            let result2 = "すみません。何をおっしゃっているか全くわかりません。";
+            let result2 = "あいうえおかき";
             let input = command2 + "";
             let isAnswerDetected = false;
             if (nextAction != "") {
