@@ -157,7 +157,7 @@
                 const qrURL = await URL.createObjectURL(data);
                 return input + `のQRコードはこちらです😊<br><img src="` + qrURL + "\" style=\"max-width:200px;max-height:200px;\">";
             } else if (mode == "wikir") {
-                var artres = await fetch("https://ja.wikipedia.org/w/api.php?format=json&action=query&list=random&rnnamespace=0&rnlimit=1");
+                var artres = await fetch("https://ja.wikipedia.org/w/api.php?format=json&action=query&list=random&rnnamespace=0&rnlimit=1&origin=*");
                 const artdata = await artres.json();
                 let targetName = JSON.parse(JSON.stringify(data)).query.random[0].title;
                 var res = await fetch("https://ja.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + targetName + "&format=json&origin=*");
