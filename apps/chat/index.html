@@ -21,10 +21,10 @@
         <div class="container">
             <div class="row flex-nowrap">
                 <div class="col-10">
-                    <input type="text" name="" id="message-field" class="form-control m-3">
+                    <input type="text" name="" id="message-field" class="form-control mt-3 mb-3">
                 </div>
                 <div class="col-2">
-                    <button type="submit" class="btn btn-primary m-3" onclick="onSendMessage();" id="send-message"
+                    <button type="submit" class="btn btn-primary mt-3 mb-3" onclick="onSendMessage();" id="send-message"
                         style="white-space: nowrap;"><i class="bi bi-send"></i>&nbsp;送信</button>
                 </div>
             </div>
@@ -47,6 +47,7 @@
         let accumulation = "";
         let isFirstQ = true;
         let responseList = [];
+        let nextAction = "";
         messageField.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 btn_search.dispatchEvent(new PointerEvent("click"));
@@ -106,7 +107,7 @@
                 accumulation += message;
             } else {
                 finalAnswerElement.innerHTML = accumulation + message;
-                btn_search.innerHTML = `<i class="bi bi - send"></i>&nbsp;送信`;
+                btn_search.innerHTML = `<i class="bi bi-send"></i>&nbsp;送信`;
 
                 btn_search.disabled = false;
                 messageField.disabled = false;
@@ -141,6 +142,14 @@
                         return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
                     }
                 }
+            } else if (mode == "qr") {
+                nextAction = "qr";
+                return "もちろんです！QRコードを生成したいURLを入力してください。";
+            } else if (mode == "qr2") {
+                var res = await fetch("https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + input);
+                const data = await res.blob();
+                const qrURL = await URL.createObjectURL(data);
+                return input + `のQRコードはこちらです✌️<br><img src="` + qrURL + "\" style=\"max-width:200px;max-height:200px;\"";
             }
         }
         function generateUUID() {
@@ -170,6 +179,12 @@
             let result2 = "すみません。何をおっしゃっているか全くわかりません。";
             let input = command2 + "";
             let isAnswerDetected = false;
+            if (nextAction != "") {
+                if (nextAction == "qr") {
+                    result2 = await getAPIResponse("qr2", input);
+                }
+                nextAction = "";
+            }
             for (let index = 0; index < responseList.length && isAnswerDetected == false; index++) {
                 for (let keywordIndex = 0; keywordIndex < responseList[index].keywords.length; keywordIndex++) {
                     let keyword = responseList[index].keywords[keywordIndex];
@@ -195,6 +210,8 @@
                 result2 = await getAPIResponse("weather", input);
             } else if (result2 == "${wiki}") {
                 result2 = await getAPIResponse("wiki", input);
+            } else if (result2 == "${qr}") {
+                result2 = await getAPIResponse("qr", input);
             }
             return result2;
         };

@@ -27,10 +27,10 @@
         },
         {
             "keywords": [
-                "www",
-                "(笑)"
+                "QR",
+                "qr"
             ],
-            "response": "WWW"
+            "response": "${qr}"
         }
     ]
 }
