@@ -173,10 +173,11 @@
                                 returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
                             } catch (e) {
                             }
+                            return returns;
                         } else {
                             return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
                         }
-                        return returns;
+
                     } catch (e) {
                         return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
                     }
