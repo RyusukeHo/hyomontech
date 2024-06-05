@@ -74,6 +74,7 @@
         let accumulation = "";
         let isFirstQ = true;
         let responseList = [];
+        let unintelligibleList = [];
         let nextAction = "";
         messageField.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
@@ -123,7 +124,9 @@
 
                     var res = await fetch("https://ryusukeho.github.io/hyomontech/apps/chat/default-response.json");
                     const data = await res.json();
-                    responseList = JSON.parse(JSON.stringify(data)).response_list;
+                    let jsonData = JSON.parse(JSON.stringify(data));
+                    responseList = jsonData.response_list;
+                    unintelligibleList = jsonData.unintelligible;
                 }
                 await delay((Math.floor(Math.random() * 1) + 0.5) * 1000);
                 syntaxAnalyzer(message);
@@ -172,14 +175,17 @@
                                 var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
                                 returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
                             } catch (e) {
+                                console.log(e);
                             }
                             return returns;
                         } else {
                             return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
+                            console.log(request);
                         }
 
                     } catch (e) {
                         return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
+                        console.log(e);
                     }
                 }
             } else if (mode == "qr") {
@@ -241,7 +247,7 @@
             }
         };
         let answerMaker = async (command2) => {
-            let result2 = "すみません。わかりませんでした。";
+            let result2 = unintelligible[Math.floor(Math.random() * unintelligible.length)];
             let input = command2 + "";
             let isAnswerDetected = false;
             if (nextAction != "") {
