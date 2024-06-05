@@ -166,14 +166,16 @@
                 for (let id in data.query.pages) {
                     try {
                         var request = JSON.parse(JSON.stringify(data)).query.pages[id].extract;
-                        let returns = targetName + `についてWikipediaで調べてみました🔎<br>` + request + "<br>";
-                        try {
-                            var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
-                            returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
-                        } catch (e) {
+                        if (request != undefined) {
+                            let returns = targetName + `についてWikipediaで調べてみました🔎<br>` + request + "<br>";
+                            try {
+                                var thumbnail = JSON.parse(JSON.stringify(data2)).thumbnail.source;
+                                returns += "<img src=\"" + thumbnail + "\" style=\"max-width:200px;max-height:200px;\">";
+                            } catch (e) {
+                            }
+                        } else {
+                            return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
                         }
-
-
                         return returns;
                     } catch (e) {
                         return "すみません。" + targetName + "に関する情報が見つかりませんでした。";
