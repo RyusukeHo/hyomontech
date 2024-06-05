@@ -21,10 +21,6 @@
             "response": "${weather}"
         },
         {
-            "keywords": "とは-",
-            "response": "...えっと..."
-        },
-        {
             "keywords": [
                 "-とは",
                 "って何",
