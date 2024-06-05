@@ -108,8 +108,7 @@
         {
             "keywords": [
                 "なよ島",
-                "なよしま",
-                "払え"
+                "なよしま"
             ],
             "response": "は？"
         },
@@ -128,6 +127,26 @@
                 "ヒョウモンアカウント"
             ],
             "response": "HyomonアカウントはHyomon Techのサービスを利用するにあたって、ユーザーをを識別するためのものです。Hyomonアカウント登録時にIDとパスワードを設定することで、Hyomonサービス上でのあなたの活動をアカウント上に記録しておくことができます。"
+        },
+        {
+            "keywords": [
+                "ゲーム",
+                "ひま",
+                "暇"
+            ],
+            "response": "ゲームをお探しですか？<br>Microsoft社が運営するMSNでは多くのミニゲームをプレイできます。（<a href=\"https://www.msn.com/ja-jp/play\">こちら</a>）<br>また、Hyomon Techのゲームは<a href=\"https://sites.google.com/view/hyomon-technologies/%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88/%E3%82%A2%E3%83%97%E3%83%AA%E3%83%9B%E3%83%BC%E3%83%A0\">アプリホーム</a>にあります。"
+        },
+        {
+            "keywords": [
+                "chatgpt",
+                "Chat GPT",
+                "ChatGPT",
+                "chat gpt",
+                "gemini",
+                "ai",
+                "Gemini"
+            ],
+            "response": "私はChat GPTやGemini等のモデルを搭載しているわけではありませんので、それらのような自然な回答をすることはできません。予めご了承ください🙇"
         }
     ]
 }
