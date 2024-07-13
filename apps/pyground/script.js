@@ -1,7 +1,8 @@
 let editor = ace.edit("editor");
 editor.setTheme('ace/theme/tomorrow_night');
 editor.session.setMode("ace/mode/python");
-editor.setOptions({ fontFamily: "Consolas", fontSize: "12pt" })
+editor.setOptions({ fontFamily: "Consolas, Monaco, 'Lucida Console', 'Courier New', monospace", fontSize: "12pt" });
+editor.setAutoScrollEditorIntoView(false);
 editor.setValue(`print("Hello, world!")`);
 
 let execute = document.getElementById("execute");

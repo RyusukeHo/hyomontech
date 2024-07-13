@@ -3,11 +3,11 @@ body {
 }
 
 #editor {
-    height: 48vh;
+    height: 45vh;
 }
 
 #console {
-    height: 23vh;
+    height: 22vh;
     width: 95%;
     background-color: rgb(39, 40, 62);
     color: white;
@@ -18,7 +18,7 @@ body {
     font-size: small;
     flex-wrap: wrap;
     scroll-behavior: smooth;
-    padding: 10px;
+    padding: 5px;
 }
 
 #console>p {
@@ -76,4 +76,8 @@ body {
 
 .prompt-message {
     color: rgb(255, 252, 104);
+}
+
+.notice {
+    font-size: smaller;
 }
