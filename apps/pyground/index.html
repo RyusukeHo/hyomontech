@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min/ace.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png">
+    <link rel="icon" href="favicon.ico">
+    <title>Pyground</title>
+</head>
+
+<body>
+    <h3 class="dotgothic16-regular">Pyground</h3>
+    <div id="editor"></div>
+    <div id="toolbar"><button class="toolbar-icon" id="execute" disabled>
+            <p>実行</p>
+        </button><button class="toolbar-icon" id="clear-log">
+            <p>ログをクリア</p>
+        </button></div>
+    <div id="console"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

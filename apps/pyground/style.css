@@ -1,0 +1,79 @@
+body {
+    background-color: rgb(7, 9, 65);
+}
+
+#editor {
+    height: 48vh;
+}
+
+#console {
+    height: 23vh;
+    width: 95%;
+    background-color: rgb(39, 40, 62);
+    color: white;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow-y: scroll;
+    font-size: small;
+    flex-wrap: wrap;
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+#console>p {
+    padding: 0%;
+    margin: 0%;
+}
+
+.dotgothic16-regular {
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(137, 146, 239)
+}
+
+.toolbar-icon {
+    width: 100px;
+    border-radius: 5px;
+    border-style: none;
+    margin: 10px;
+    padding: 0;
+    cursor: pointer;
+}
+
+#execute {
+    background-color: rgb(70, 73, 180);
+}
+
+#clear-log {
+    background-color: rgb(50, 53, 130);
+}
+
+#execute:active {
+    background-color: rgb(53, 56, 136);
+}
+
+#execute:disabled {
+    background-color: rgb(17, 20, 96);
+    cursor: not-allowed;
+}
+
+.toolbar-icon:disabled>p {
+    color: rgb(144, 144, 144);
+}
+
+.toolbar-icon>p {
+    color: white;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.error-message {
+    color: rgb(255, 171, 171);
+}
+
+.prompt-message {
+    color: rgb(255, 252, 104);
+}
