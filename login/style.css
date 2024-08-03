@@ -1,0 +1,229 @@
+body {
+    background-color: rgb(210, 229, 231);
+}
+
+.container {
+    width: 100%;
+    height: 70vh;
+}
+
+.card {
+    border-radius: 30px;
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    margin: 50px auto;
+    padding: 40px;
+    box-shadow: 10px 10px 15px 0 #0000000a;
+}
+
+.input-form {
+    display: block;
+    margin: 5px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        order: 1;
+        padding: 1rem 0;
+        padding-left: 8px;
+        border-radius: 5px;
+        border: 1px solid #8e8e8e;
+        width: 300px;
+        height: 20px;
+        font-size: large;
+        outline: #0000000a solid 0;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:not(:placeholder-shown)+span {
+            transform: translateY(0) scale(.75);
+        }
+
+        &:focus+span {
+            transform: translateY(0) scale(.75);
+        }
+    }
+
+    input:focus {
+        outline: 2px solid #3c7ade;
+    }
+
+    span {
+        transform: translateY(2.2rem) scale(1);
+        transform-origin: left;
+        transition: .3s;
+    }
+}
+
+.noto-sans-jp-normal {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.noto-sans-jp-bold {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.input-button {
+    border-radius: 25px;
+    background-color: #3c7ade;
+    color: white;
+    height: 50px;
+    padding: 5px;
+    border: #0000000a solid 0;
+    width: 100px;
+    margin: 10px;
+    margin-top: 20px;
+    display: block;
+    cursor: pointer;
+}
+
+.input-button:hover {
+    background-color: #356ec9;
+    box-shadow: 3px 3px 3px 0 #0000001a;
+}
+
+.input-button:disabled {
+    background-color: #1f4179;
+    cursor: default;
+}
+
+.input-button:disabled:hover {
+    box-shadow: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.login {
+    margin: 5px;
+}
+
+.message-box {
+    width: 60%;
+}
+
+.login-box {
+    width: 40%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+}
+
+circle {
+    fill: none;
+    stroke: #3c7ade;
+    stroke-width: 10;
+    stroke-linecap: round;
+    /* 使うkeyframesの名前、再生時間、補間の仕方、繰り返すかどうか、をそれぞれ指定している */
+    animation: wax-and-wane 2s cubic-bezier(.5, 0, .5, 1) infinite, rotate 1.5s linear infinite;
+}
+
+/* 全体の再生時間のn%のときになってほしいCSSプロパティを指定する */
+@keyframes wax-and-wane {
+
+    /* 状態1 */
+    0% {
+        stroke-dasharray: 236 78;
+        stroke-dashoffset: -37;
+    }
+
+    /* 状態2 */
+    50% {
+        stroke-dasharray: 20 294;
+        stroke-dashoffset: -304;
+    }
+
+    /* 状態3 */
+    100% {
+        stroke-dasharray: 236 78;
+        stroke-dashoffset: -351;
+    }
+}
+
+@keyframes rotate {
+
+    /* 0%の時はどっちみち0度なので省略してもよいです */
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.dli-exclamation-circle {
+    display: inline-block;
+    vertical-align: middle;
+    color: #b02828;
+    line-height: 1;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+.dli-exclamation-circle>span {
+    width: 0.15em;
+    height: 0.6em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.dli-exclamation-circle>span::before,
+.dli-exclamation-circle>span::after {
+    content: '';
+    display: block;
+    width: inherit;
+    background: currentColor;
+}
+
+.dli-exclamation-circle>span::before {
+    margin-bottom: 0.1em;
+    height: 0.35em;
+    border-radius: 0.025em;
+}
+
+.dli-exclamation-circle>span::after {
+    height: 0.15em;
+    border-radius: 50%;
+}
+
+.error {
+    color: #b02828;
+}
