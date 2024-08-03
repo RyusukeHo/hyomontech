@@ -12,7 +12,7 @@ let onLogin = async () => {
     welcome.innerHTML = "ログインしています";
     message.innerHTML = "<p>お待ちください...</p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>";
 
-    let response = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec?id=" + id.value + "&password=" + password.value, {
+    let response = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec?id=" + encodeURIComponent(id.value) + "&password=" + encodeURIComponent(password.value), {
         method: 'GET'
     })
     let obj = await response.json();
