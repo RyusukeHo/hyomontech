@@ -37,6 +37,10 @@ let onLogin = async () => {
         failureLogin("アカウントが見つかりませんでした。");
         id.value = "";
         password.value = "";
+    } else if (obj.code == "Blocked") {
+        failureLogin("このアカウントはブロックされています。");
+        id.value = "";
+        password.value = "";
     }
 };
 let failureLogin = (reason) => {
