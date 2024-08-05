@@ -6,42 +6,44 @@ let message = document.getElementById("message");
 let loginbox = document.getElementById("login-box");
 
 let onLogin = async () => {
+    if (id.value != "") {
+        id.disabled = true;
+        password.disabled = true;
+        login.disabled = true;
+        welcome.innerHTML = "ログインしています";
+        message.innerHTML = "<p>お待ちください...</p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>";
+        const data = {
+            "type": "login",
+            "id": id.value,
+            "password": password.value
+        };
 
-    id.disabled = true;
-    password.disabled = true;
-    login.disabled = true;
-    welcome.innerHTML = "ログインしています";
-    message.innerHTML = "<p>お待ちください...</p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>";
-    const data = {
-        "type": "login",
-        "id": id.value,
-        "password": password.value
-    };
-
-    const options = {
-        'method': 'post',
-        'headers': {
-        },
-        'body': JSON.stringify(data)
-    };
-    let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
-    let obj = await res.json();
-    if (obj.code == "Success") {
-        successLogin(obj.body);
-        id.value = "";
-        password.value = "";
-    } else if (obj.code == "Failure") {
-        failureLogin("パスワードが間違っています。");
-        password.value = "";
-    } else if (obj.code == "NotFound") {
-        failureLogin("アカウントが見つかりませんでした。");
-        id.value = "";
-        password.value = "";
-    } else if (obj.code == "Blocked") {
-        failureLogin("このアカウントはブロックされています。");
-        id.value = "";
-        password.value = "";
+        const options = {
+            'method': 'post',
+            'headers': {
+            },
+            'body': JSON.stringify(data)
+        };
+        let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
+        let obj = await res.json();
+        if (obj.code == "Success") {
+            successLogin(obj.body);
+            id.value = "";
+            password.value = "";
+        } else if (obj.code == "Failure") {
+            failureLogin("パスワードが間違っています。");
+            password.value = "";
+        } else if (obj.code == "NotFound") {
+            failureLogin("アカウントが見つかりませんでした。");
+            id.value = "";
+            password.value = "";
+        } else if (obj.code == "Blocked") {
+            failureLogin("このアカウントはブロックされています。");
+            id.value = "";
+            password.value = "";
+        }
     }
+
 };
 let failureLogin = (reason) => {
     welcome.innerHTML = "もう一度お試しください";
