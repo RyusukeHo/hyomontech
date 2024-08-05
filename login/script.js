@@ -71,7 +71,7 @@ let successLogin = (body) => {
     } else {
         message.innerHTML = "<p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>リダイレクトします...</p> ";
         setTimeout(() => {
-            parent.location.href = decodeURIComponent(data);
+            window.location.href = decodeURIComponent(data);
         }, 1500);
     }
 

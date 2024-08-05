@@ -24,7 +24,7 @@ let onLogout = async () => {
         } else {
             logout.innerHTML = "<p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>ログアウトしました。リダイレクトします...</p>"
             setTimeout(() => {
-                parent.location.href = decodeURIComponent(data);
+                window.location.href = decodeURIComponent(data);
             }, 1500);
         }
 
