@@ -13,27 +13,30 @@ let onLogin = async () => {
     welcome.innerHTML = "ログインしています";
     message.innerHTML = "<p>お待ちください...</p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>";
     const data = {
+        "type": "login",
         "id": id.value,
         "password": password.value
     };
 
-    // Optionsを設定します
     const options = {
         'method': 'post',
-
         'headers': {
-            //,'Authorization': `Bearer ${token}` //ウェブアプリを全体公開出来ない場合この認証が必要なので、コメントアウトをはずす。
         },
-        'body': JSON.stringify(data) //送りたいデータをpayloadに配置してJSON形式変換。
+        'body': JSON.stringify(data)
     };
     let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
     let obj = await res.json();
     if (obj.code == "Success") {
         successLogin(obj.body);
+        id.value = "";
+        password.value = "";
     } else if (obj.code == "Failure") {
         failureLogin("パスワードが間違っています。");
+        password.value = "";
     } else if (obj.code == "NotFound") {
         failureLogin("アカウントが見つかりませんでした。");
+        id.value = "";
+        password.value = "";
     }
 };
 let failureLogin = (reason) => {
@@ -42,8 +45,7 @@ let failureLogin = (reason) => {
     id.disabled = false;
     password.disabled = false;
     login.disabled = false;
-    id.value = "";
-    password.value = "";
+
 };
 let successLogin = (body) => {
     let d = new Date();
@@ -55,7 +57,19 @@ let successLogin = (body) => {
     } else {
         welcome.innerHTML = "こんにちは！" + body[3] + "さん";
     }
-    message.innerHTML = "<p>ログインは正常に終了しました。</p> ";
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    let data = url.searchParams.get("redirect");
+
     loginbox.style.visibility = "hidden";
+    if (data == null) {
+        message.innerHTML = "<p>このページは閉じてかまいません。</p> ";
+    } else {
+        message.innerHTML = "<p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>リダイレクトします...</p> ";
+        setTimeout(() => {
+            parent.location.href = decodeURIComponent(data);
+        }, 1500);
+    }
+
 };
 login.addEventListener("click", onLogin);
