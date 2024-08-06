@@ -63,8 +63,8 @@ let successLogin = (body, id, password) => {
     } else {
         welcome.innerHTML = "こんにちは！" + body[3] + "さん";
     }
-    document.cookie = "id=" + encodeURIComponent(id) + "; path=/; secure; samesite=Strict";
-    document.cookie = "pwd=" + encodeURIComponent(password) + "; path=/; secure; samesite=Strict";
+    document.cookie = "id=" + encodeURIComponent(id) + "; path=/; max-age=2592000; secure; samesite=Strict";
+    document.cookie = "pwd=" + encodeURIComponent(password) + "; path=/; max-age=2592000; secure; samesite=Strict";
 
     let url_string = window.location.href;
     let url = new URL(url_string);
