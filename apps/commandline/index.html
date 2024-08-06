@@ -48,29 +48,33 @@
             // 指定されたクッキーが見つからない場合「null」を返す
             return null;
         }
-        if (getCookie("id") == null) {
-            frame.src = "https://ryusukeho.github.io/hyomontech/login/";
-        } else {
-            const data = {
-                "type": "login",
-                "id": decodeURIComponent(getCookie("id")),
-                "password": decodeURIComponent(getCookie("password"))
-            };
-
-            const options = {
-                'method': 'post',
-                'headers': {
-                },
-                'body': JSON.stringify(data)
-            };
-            let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
-            let obj = await res.json();
-            if (obj.code == "Success") {
-                frame.contentWindow.postMessage(JSON.stringify(obj), appPath);
-            } else {
+        checkLogin();
+        async function checkLogin() {
+            if (getCookie("id") == null) {
                 frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+            } else {
+                const data = {
+                    "type": "login",
+                    "id": decodeURIComponent(getCookie("id")),
+                    "password": decodeURIComponent(getCookie("password"))
+                };
+
+                const options = {
+                    'method': 'post',
+                    'headers': {
+                    },
+                    'body': JSON.stringify(data)
+                };
+                let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
+                let obj = await res.json();
+                if (obj.code == "Success") {
+                    frame.contentWindow.postMessage(JSON.stringify(obj), appPath);
+                } else {
+                    frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+                }
             }
         }
+
     </script>
 </body>
 
