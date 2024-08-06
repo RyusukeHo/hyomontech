@@ -51,7 +51,7 @@
             if (getCookie("id") == null) {
                 frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
             } else {
-                frame.src = appPath + "?id=" + getCookie("id") + "&pwd=" + getCookie("pwd");
+                frame.src = appPath + "?id=" + encodeURIComponent(getCookie("id")) + "&pwd=" + encodeURIComponent(getCookie("pwd"));
             }
         }
 

@@ -11,8 +11,7 @@
 </head>
 
 <body>
-    <div class="container"><iframe src="about:blank" frameborder="0" id="viewer"></iframe></div>
-
+    <div class="container"><iframe src="about:blank" frameborder="0" id="page"></iframe></div>
 
     <style>
         * {
@@ -29,7 +28,32 @@
         }
     </style>
     <script>
-        document.getElementById("viewer").setAttribute("src", "https://script.google.com/macros/s/AKfycbz4k2yUIyGBs4BiAP4yg-Q2nRxrWIqeLwB3OOXZbRlLarxAiwce2p1Eugqjj0JwYX09Jw/exec" + location.search);
+        let appPath = "https://script.google.com/macros/s/AKfycbz4k2yUIyGBs4BiAP4yg-Q2nRxrWIqeLwB3OOXZbRlLarxAiwce2p1Eugqjj0JwYX09Jw/exec" + location.search;
+        let frame = document.getElementById("page");
+        function getCookie(cookieName) {
+            let name = cookieName + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookieArray = decodedCookie.split(';');
+
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i].trim();
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+
+            // 指定されたクッキーが見つからない場合「null」を返す
+            return null;
+        }
+        checkLogin();
+        async function checkLogin() {
+            if (getCookie("id") == null) {
+                frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
+            } else {
+                frame.src = appPath + "?id=" + encodeURIComponent(getCookie("id")) + "&pwd=" + encodeURIComponent(getCookie("pwd"));
+            }
+        }
+
     </script>
 </body>
 
