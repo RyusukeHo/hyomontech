@@ -73,8 +73,13 @@ let successLogin = (body) => {
     } else {
         message.innerHTML = "<p><svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>リダイレクトします...</p> ";
         setTimeout(() => {
-            window.location.href = decodeURIComponent(data);
-        }, 1500);
+            if (data != "reload") {
+                window.location.href = decodeURIComponent(data);
+            } else {
+                window.top.location.reload();
+            }
+
+        }, 1000);
     }
 
 };
