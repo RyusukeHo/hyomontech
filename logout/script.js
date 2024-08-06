@@ -2,8 +2,8 @@ let logout = document.getElementById("logout-message");
 
 let onLogout = async () => {
     logout.innerHTML = "<svg width=\"30\" height=\"30\" viewBox=\"-60 -60 120 120\"><circle r =\"50\" /></svg>ログアウト";
-    document.cookie = "id=; max-age=0; path=/; secure; samesite=Strict";
-    document.cookie = "pwd=; max-age=0; path=/; secure; samesite=Strict";
+    document.cookie = "id=none; max-age=0; path=/; secure; samesite=Strict";
+    document.cookie = "pwd=none; max-age=0; path=/; secure; samesite=Strict";
     let url_string = window.location.href;
     let url = new URL(url_string);
     let data = url.searchParams.get("redirect");
