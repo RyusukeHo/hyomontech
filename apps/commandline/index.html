@@ -51,7 +51,7 @@
         checkLogin();
         async function checkLogin() {
             if (getCookie("id") == null) {
-                frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+                frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=" + appPath;
             } else {
                 const data = {
                     "type": "login",
@@ -70,7 +70,7 @@
                 if (obj.code == "Success") {
                     frame.contentWindow.postMessage(JSON.stringify(obj), appPath);
                 } else {
-                    frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+                    frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=" + appPath;
                 }
             }
         }
