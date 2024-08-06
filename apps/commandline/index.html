@@ -66,6 +66,7 @@
                 let res = await fetch(appPath, options);
                 let obj = await res.text();
                 if (obj != "login") {
+                    frame.src = "";
                     frame.srcdoc = obj;
                 } else {
                     frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
