@@ -52,9 +52,9 @@
                 frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
             } else {
                 const data = {
-                    "type": "login",
                     "id": decodeURIComponent(getCookie("id")),
-                    "password": decodeURIComponent(getCookie("pwd"))
+                    "password": decodeURIComponent(getCookie("pwd")),
+                    "type": "login"
                 };
 
                 const options = {
@@ -63,12 +63,12 @@
                     },
                     'body': JSON.stringify(data)
                 };
-                let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
-                let obj = await res.json();
-                if (obj.code == "Success") {
-                    frame.src = appPath + "?body=" + JSON.stringify(obj);
+                let res = await fetch(appPath, options);
+                let obj = await res.text();
+                if (obj != "login") {
+                    frame.innerHTML = obj;
                 } else {
-                    frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=" + appPath;
+                    frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
                 }
             }
         }
