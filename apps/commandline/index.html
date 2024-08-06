@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <div class="container"><iframe
-            src="https://script.google.com/macros/s/AKfycbz7pEBocJ3zOGfEr-t3Ib6Kp5TZaZv2hpE2iDVBmNZW4eUkKkx1eskbWKjZIYmcZZAZPg/exec"
-            frameborder="0" id="page"></iframe></div>
+    <div class="container"><iframe src="about:blank" frameborder="0" id="page"></iframe></div>
 
 
     <style>
@@ -51,7 +49,7 @@
         checkLogin();
         async function checkLogin() {
             if (getCookie("id") == null) {
-                frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=" + appPath;
+                frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
             } else {
                 const data = {
                     "type": "login",
@@ -68,7 +66,7 @@
                 let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
                 let obj = await res.json();
                 if (obj.code == "Success") {
-                    frame.contentWindow.postMessage(JSON.stringify(obj), appPath);
+                    frame.src = appPath + "?body=" + JSON.stringify(obj);
                 } else {
                     frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=" + appPath;
                 }
