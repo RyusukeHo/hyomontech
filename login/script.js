@@ -27,7 +27,7 @@ let onLogin = async () => {
         let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
         let obj = await res.json();
         if (obj.code == "Success") {
-            successLogin(obj.body);
+            successLogin(obj.body, id.value, password.value);
             id.value = "";
             password.value = "";
         } else if (obj.code == "Failure") {
@@ -53,7 +53,7 @@ let failureLogin = (reason) => {
     login.disabled = false;
 
 };
-let successLogin = (body) => {
+let successLogin = (body, id, password) => {
     let d = new Date();
     let hour = d.getHours();
     if (hour >= 18 || hour <= 3) {
@@ -63,6 +63,8 @@ let successLogin = (body) => {
     } else {
         welcome.innerHTML = "こんにちは！" + body[3] + "さん";
     }
+    document.cookie = "id=" + encodeURIComponent(id) + "; password=" + encodeURIComponent(password) + "; path=/; secure; samesite=Strict";
+
     let url_string = window.location.href;
     let url = new URL(url_string);
     let data = url.searchParams.get("redirect");
@@ -81,6 +83,5 @@ let successLogin = (body) => {
 
         }, 1000);
     }
-
 };
 login.addEventListener("click", onLogin);

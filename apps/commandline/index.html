@@ -13,7 +13,7 @@
 <body>
     <div class="container"><iframe
             src="https://script.google.com/macros/s/AKfycbz7pEBocJ3zOGfEr-t3Ib6Kp5TZaZv2hpE2iDVBmNZW4eUkKkx1eskbWKjZIYmcZZAZPg/exec"
-            frameborder="0"></iframe></div>
+            frameborder="0" id="page"></iframe></div>
 
 
     <style>
@@ -30,6 +30,48 @@
             height: 100%;
         }
     </style>
+    <script>
+        let appPath = "https://script.google.com/macros/s/AKfycbz7pEBocJ3zOGfEr-t3Ib6Kp5TZaZv2hpE2iDVBmNZW4eUkKkx1eskbWKjZIYmcZZAZPg/exec";
+        let frame = document.getElementById("page");
+        function getCookie(cookieName) {
+            let name = cookieName + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookieArray = decodedCookie.split(';');
+
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i].trim();
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+
+            // 指定されたクッキーが見つからない場合「null」を返す
+            return null;
+        }
+        if (getCookie("id") == null) {
+            frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+        } else {
+            const data = {
+                "type": "login",
+                "id": decodeURIComponent(getCookie("id")),
+                "password": decodeURIComponent(getCookie("password"))
+            };
+
+            const options = {
+                'method': 'post',
+                'headers': {
+                },
+                'body': JSON.stringify(data)
+            };
+            let res = await fetch("https://script.google.com/macros/s/AKfycbwzB6H3Wy_V1MK_TMSkxBi3Kusz2MBEtuRkphpA7w9DKS9ApQOcaO-HH-Yh8mtEmQxy/exec", options);
+            let obj = await res.json();
+            if (obj.code == "Success") {
+                frame.contentWindow.postMessage(JSON.stringify(obj), appPath);
+            } else {
+                frame.src = "https://ryusukeho.github.io/hyomontech/login/";
+            }
+        }
+    </script>
 </body>
 
 </html>
