@@ -48,9 +48,9 @@
         checkLogin();
         async function checkLogin() {
             if (getCookie("id") == null) {
-                frame.src = "https://ryusukeho.github.io/hyomontech/login/?redirect=reload";
-            } else {
                 frame.src = appPath + "&id=" + encodeURIComponent(getCookie("id")) + "&pwd=" + encodeURIComponent(getCookie("pwd"));
+            } else {
+                frame.src = appPath + "&id=&pwd=";
             }
         }
 
