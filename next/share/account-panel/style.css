@@ -1,0 +1,116 @@
+body {
+    height: 100dvh;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inter-medium {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #2f2f2f;
+    font-style: normal;
+    font-size: larger;
+}
+
+.inter-small {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #646464;
+    font-style: normal;
+    font-size: medium;
+}
+
+.account-view {
+    box-shadow: 0px 0px 5px 2px #0000001d;
+    width: 300px;
+    height: calc(100% - 10px);
+    border-radius: 20px;
+    background-color: #ffffff;
+
+    font-size: larger;
+
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        width: 100%;
+        height: 40px;
+        border-radius: 20px 20px 0px 0px;
+        background-color: #f0f0f0;
+        font-size: larger;
+        margin: 0;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h1 {
+            width: 260px;
+            flex-grow: 1;
+        }
+
+        img {
+            padding-left: 10px;
+            height: 30px;
+            flex-shrink: 0;
+            filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1199%) hue-rotate(256deg) brightness(88%) contrast(92%);
+        }
+    }
+
+    .container {
+
+        width: 300px;
+        height: 200px;
+        border-radius: 0px 0px 20px 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+
+        .account-view-icon img {
+            cursor: pointer;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+        }
+
+        .account-view-icon img::after {
+            content: '<span class="material-symbols-outlined"></span>';
+        }
+
+        .account-view-name {
+            width: 100%;
+
+            h1 {
+                width: 100%;
+                text-align: center;
+                margin: 0px;
+            }
+        }
+
+        .account-view-email {
+            width: 100%;
+
+            p {
+                width: 100%;
+                text-align: center;
+                margin: 0px;
+            }
+        }
+
+        .account-page {
+            margin-top: 20px;
+        }
+    }
+
+
+}

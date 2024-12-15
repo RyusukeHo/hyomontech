@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png">
+    <link rel="icon" href="favicon.ico">
+
+    <title>ログイン - Hyomon Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-content" id="login-card">
+                <img src="logo.png" alt="" width="70">
+                <h1 class="login noto-sans-jp-bold" id="welcome">ようこそ</h1>
+                <div class="main-content">
+                    <div class="message-box noto-sans-jp-normal" id="message">
+                        <p>Hyomonアカウントにログインします。</p>
+                        <p>パスワードまたはIDをお忘れの場合は<a
+                                href="https://docs.google.com/forms/d/1wNEdvV9nDlvMgC66nMCSAnSKapXjBu6Itvs4cufiJWQ/viewform?edit_requested=true">こちら</a>
+                        </p>
+                    </div>
+                    <div class="login-box" id="login-box">
+                        <div class="middle">
+                            <div class="input-form">
+                                <label>
+                                    <input type="text" class="text-input noto-sans-jp-normal" placeholder="placeholder"
+                                        id="account-id">
+                                    <span class="noto-sans-jp-normal">アカウントID</span>
+                                </label>
+                            </div>
+
+                            <div class="input-form">
+                                <label>
+                                    <input type="password" class="text-input noto-sans-jp-normal"
+                                        placeholder="placeholder" id="account-password">
+                                    <span class="noto-sans-jp-normal">パスワード</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <input type="button" value="ログイン" class="input-button" id="login">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
