@@ -36918,7 +36918,7 @@ A.Y2.prototype={}
 A.Y1.prototype={}
 A.GG.prototype={
 I(a){var s=null,r=A.rG(s,A.aqy(B.ae,s,s,B.I5),!0)
-return new A.x7(new A.vd(new A.pQ(B.em,$.ak()),B.HM,s),"Draw",r,s)}}
+return new A.x7(new A.vd(new A.pQ(B.em,$.ak()),B.HM,s),"\u65b0\u3057\u3044\u30ad\u30e3\u30f3\u30d0\u30b9",r,s)}}
 A.x3.prototype={
 aj(){return new A.Bi(B.Iw,A.b([300,300],t.t))}}
 A.Bi.prototype={
