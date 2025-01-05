@@ -34,70 +34,79 @@ body {
     font-size: larger;
     margin-right: auto;
     margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-content: start;
+
     overflow: auto;
-    gap: 15px;
-
     padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .app {
-        text-decoration: none;
+    .apps {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-content: start;
+        gap: 15px;
 
-        div {
-            user-select: none;
-            cursor: pointer;
-            width: 80px;
-            height: 80px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .app {
+            text-decoration: none;
 
-            img {
-                margin-top: 5px;
-                width: 50px;
-                height: 50px;
+            div {
+                user-select: none;
+                cursor: pointer;
+                width: 80px;
+                height: 80px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    margin-top: 5px;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                p {
+                    font-size: small;
+                    margin: 0;
+                    text-align: center;
+                    white-space: nowrap;
+                    font-family: "Inter", sans-serif;
+                    font-weight: 400;
+                    color: black;
+                    font-style: normal;
+                }
             }
 
-            p {
-                font-size: small;
-                margin: 0;
-                text-align: center;
-                white-space: nowrap;
-                font-family: "Inter", sans-serif;
-                font-weight: 400;
-                color: black;
-                font-style: normal;
+            div::before {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 80px;
+                height: 80px;
+                border-radius: 15px;
+                background: transparent;
+                transition: background 0.1s ease-in-out;
             }
-        }
 
-        div::before {
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
-            background: transparent;
-            transition: background 0.1s ease-in-out;
-        }
-
-        div:hover::before {
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
-            background: #00000010;
+            div:hover::before {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 80px;
+                height: 80px;
+                border-radius: 15px;
+                background: #00000010;
+            }
         }
     }
 
-
+    .all-app {
+        margin-top: 20px;
+    }
 }

@@ -16,7 +16,12 @@
     align-items: center;
     user-select: none;
 
-    span {
+    span .right {
+        margin-left: 10px;
+
+    }
+
+    span .left {
         margin-right: 10px;
     }
 }
@@ -45,7 +50,12 @@
     color: rgb(24, 135, 232);
     outline-offset: -2px;
 
-    span {
+    span .right {
+        margin-left: 10px;
+
+    }
+
+    span .left {
         margin-right: 10px;
     }
 }
