@@ -6804,34 +6804,36 @@ _.d=_.c=0
 _.$ti=c},
 Y2:function Y2(){},
 Y1:function Y1(){},
-aJg(){var s,r,q,p,o,n,m,l,k,j=null
-if($.a4==null){s=A.b([],t.GA)
-r=$.ai
-q=$.ak()
-p=A.b([],t.Jh)
-o=A.br(7,j,!1,t.JI)
-n=t.S
-m=t.j1
-n=new A.LO(j,j,$,s,j,!0,new A.bY(new A.ar(r,t.V),t.d),!1,j,!1,$,j,$,$,$,A.B(t.K,t.Ju),!1,0,!1,$,0,j,$,$,new A.Sn(A.ax(t.M)),$,$,$,new A.cf(j,q),$,j,A.ax(t.Jx),p,j,A.aIc(),new A.Hr(A.aIb(),o,t.G7),!1,0,A.B(n,t.h1),A.cD(n),A.b([],m),A.b([],m),j,!1,B.cD,!0,!1,j,B.w,B.w,j,0,j,!1,j,j,0,A.lo(j,t.qL),new A.a6_(A.B(n,t.rr),A.B(t.Ld,t.iD)),new A.a02(A.B(n,t.cK)),new A.a62(),A.B(n,t.Fn),$,!1,B.CU)
-n.fA()
-n.XL()}s=$.a4
+aJg(){var s,r,q,p,o,n,m,l,k=null,j=window
+j.toString
+if("flutterReady" in j)window.flutterReady()
+if($.a4==null){j=A.b([],t.GA)
+s=$.ai
+r=$.ak()
+q=A.b([],t.Jh)
+p=A.br(7,k,!1,t.JI)
+o=t.S
+n=t.j1
+o=new A.LO(k,k,$,j,k,!0,new A.bY(new A.ar(s,t.V),t.d),!1,k,!1,$,k,$,$,$,A.B(t.K,t.Ju),!1,0,!1,$,0,k,$,$,new A.Sn(A.ax(t.M)),$,$,$,new A.cf(k,r),$,k,A.ax(t.Jx),q,k,A.aIc(),new A.Hr(A.aIb(),p,t.G7),!1,0,A.B(o,t.h1),A.cD(o),A.b([],n),A.b([],n),k,!1,B.cD,!0,!1,k,B.w,B.w,k,0,k,!1,k,k,0,A.lo(k,t.qL),new A.a6_(A.B(o,t.rr),A.B(t.Ld,t.iD)),new A.a02(A.B(o,t.cK)),new A.a62(),A.B(o,t.Fn),$,!1,B.CU)
+o.fA()
+o.XL()}j=$.a4
+j.toString
+s=$.aM()
+r=t.e8
+if(r.a(s.gcS().b.h(0,0))==null)A.az(A.a7('The app requested a view, but the platform did not provide one.\nThis is likely because the app called `runApp` to render its root widget, which expects the platform to provide a default view to render into (the "implicit" view).\nHowever, the platform likely has multi-view mode enabled, which does not create this default "implicit" view.\nTry using `runWidget` instead of `runApp` to start your app.\n`runWidget` allows you to provide a `View` widget, without requiring a default view.\nSee: https://flutter.dev/to/web-multiview-runwidget'))
+q=r.a(s.gcS().b.h(0,0))
+q.toString
+p=j.gyv()
+m=j.ay$
+if(m===$){s=r.a(s.gcS().b.h(0,0))
 s.toString
-r=$.aM()
-q=t.e8
-if(q.a(r.gcS().b.h(0,0))==null)A.az(A.a7('The app requested a view, but the platform did not provide one.\nThis is likely because the app called `runApp` to render its root widget, which expects the platform to provide a default view to render into (the "implicit" view).\nHowever, the platform likely has multi-view mode enabled, which does not create this default "implicit" view.\nTry using `runWidget` instead of `runApp` to start your app.\n`runWidget` allows you to provide a `View` widget, without requiring a default view.\nSee: https://flutter.dev/to/web-multiview-runwidget'))
-p=q.a(r.gcS().b.h(0,0))
-p.toString
-o=s.gyv()
-l=s.ay$
-if(l===$){r=q.a(r.gcS().b.h(0,0))
-r.toString
-k=new A.Rk(B.t,r,j,A.ad())
-k.aE()
-k.Yz(j,j,r)
-s.ay$!==$&&A.a8()
-s.ay$=k
-l=k}s.TX(new A.A0(p,B.CG,o,l,j))
-s.GT()},
+l=new A.Rk(B.t,s,k,A.ad())
+l.aE()
+l.Yz(k,k,s)
+j.ay$!==$&&A.a8()
+j.ay$=l
+m=l}j.TX(new A.A0(q,B.CG,p,m,k))
+j.GT()},
 GF:function GF(a){this.a=a},
 x3:function x3(a){this.a=a},
 Bi:function Bi(a,b){var _=this

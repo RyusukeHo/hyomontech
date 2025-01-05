@@ -49,6 +49,102 @@
 
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <style type="text/css">
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .loader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 150px;
+          margin-bottom: 40px;
+          filter: drop-shadow(0px 0px 5px #0000002d);
+        }
+      }
+    }
+
+
+
+    .flutter-loader {
+      width: 150px;
+      height: 8px;
+      background-color: #63d3ff;
+      overflow: hidden;
+      border-radius: 3px;
+
+    }
+
+    .indeterminate {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .indeterminate:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      background-color: #0175C2;
+      animation: indeterminate_first 2.0s infinite ease-out;
+    }
+
+    .indeterminate:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      background-color: #02569B;
+      animation: indeterminate_second 2.0s infinite ease-in;
+    }
+
+    @keyframes indeterminate_first {
+      0% {
+        left: -100%;
+        width: 100%;
+      }
+
+      100% {
+        left: 100%;
+        width: 10%;
+      }
+    }
+
+    @keyframes indeterminate_second {
+      0% {
+        left: -150%;
+        width: 100%;
+      }
+
+      100% {
+        left: 100%;
+        width: 10%;
+      }
+    }
+  </style>
+
+  <script>
+    function flutterReady() {
+      // console.log("flutter app is ready");
+      var el = document.getElementsByClassName('loader')[0];
+      if (el) { el.remove(); }
+    };
+  </script>
+  <div class="loader">
+    <img src="icons/Icon-512.png" alt="logo">
+    <div class="flutter-loader">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+
 </body>
 
 </html>
