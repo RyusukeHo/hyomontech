@@ -43558,7 +43558,7 @@ au(a,b){a.oj(this.b)},
 cv(a){return!1}}
 A.K4.prototype={
 I(a){var s=this,r=t.p,q=A.a([A.uR(B.a_3,new A.a3_(a))],r)
-return new A.O7(B.PA,A.a([A.akY(A.aIq("images/logo_outlined.svg",25,"logo",25),q,B.CA),A.akY(B.ZK,A.a([A.uR(B.ZT,new A.a30(s)),B.jt,A.uR(B.ZW,new A.a31(s)),A.uR(B.ZO,new A.a32(s)),A.uR(B.ZU,new A.a33(s)),B.jt,A.uR(B.ZY,new A.a34(s,a))],r),B.CB),A.akY(B.ZZ,A.a([A.uR(B.Px,new A.a35(s,a))],r),B.ml),A.akY(B.ZL,A.a([],r),B.ml)],r),null)}}
+return new A.O7(B.PA,A.a([A.akY(A.aIq("assets/images/logo_outlined.svg",25,"logo",25),q,B.CA),A.akY(B.ZK,A.a([A.uR(B.ZT,new A.a30(s)),B.jt,A.uR(B.ZW,new A.a31(s)),A.uR(B.ZO,new A.a32(s)),A.uR(B.ZU,new A.a33(s)),B.jt,A.uR(B.ZY,new A.a34(s,a))],r),B.CB),A.akY(B.ZZ,A.a([A.uR(B.Px,new A.a35(s,a))],r),B.ml),A.akY(B.ZL,A.a([],r),B.ml)],r),null)}}
 A.a3_.prototype={
 $0(){var s=0,r=A.Q(t.H),q=this,p,o,n
 var $async$$0=A.M(function(a,b){if(a===1)return A.N(b,r)
@@ -43567,7 +43567,7 @@ return A.R(A.afr(),$async$$0)
 case 2:p=b
 o=p.a
 n=p.c
-A.b1O(A.aIq("images/logo.svg",100,"logo",100),o,n,q.a)
+A.b1O(A.aIq("assets/images/logo.svg",100,"logo",100),o,n,q.a)
 return A.O(null,r)}})
 return A.P($async$$0,r)},
 $S:21}
